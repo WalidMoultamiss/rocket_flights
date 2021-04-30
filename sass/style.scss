@@ -1,0 +1,146 @@
+
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+$primary: rgb(0, 21, 255);
+$bg-dark: black;
+@mixin scrollbars($size,$foreground-color,$background-color:mix($foreground-color, white, 50%)) {
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+
+  &hover ::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  // For Internet Explorer
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+body {
+    transition: 2s;
+
+  .bg-dark {
+    background-color: rgb(0, 0, 0) !important;
+  }
+  .bg-transparent {
+    background-color: rgba(0, 0, 0, 0) !important;
+  }
+  @include scrollbars(5px, rgba(255, 255, 255, 0.227), rgba(0, 0, 0, 0.786));
+  nav {
+    position: fixed !important;
+    width: 100%;
+    z-index: 10;
+  }
+  .home-body {
+    background-image: url(../views/images/Starship-2019-Mars-Moon-base-render-SpaceX-1.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    padding-top: 50px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    .home-title {
+      width: fit-content;
+      height: fit-content;
+      // background-color: violet;
+      h1 {
+        color: white;
+        font-size: 100px;
+        margin-left: 8vw;
+        font-weight: 900;
+        //   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+    }
+    .home-right {
+      color: white;
+      text-align: right;
+      border-right: 2px solid $primary;
+      margin-right: 50px;
+      min-width: 200px;
+      transition: 2s;
+      &:hover {
+        letter-spacing: 10px;
+      }
+    }
+    .downLeft {
+      width: 550px;
+      display: flex;
+      justify-content: space-between;
+      margin-left: 125px;
+      .card-left-down{
+          border-radius: 15px;
+          transition: 1s;
+          &:hover{
+            background: transparent;
+      /* Note: currently only Safari supports backdrop-filter */
+      backdrop-filter: blur(30px);
+      --webkit-backdrop-filter: blur(30px);
+      background-color: rgba(29, 29, 29, 0.469);
+          }
+      }
+    }
+    .searchMe {
+      width: 215px;
+      height: 334px;
+      margin-right: 50px;
+      border-radius: 19px;
+      background: transparent;
+      /* Note: currently only Safari supports backdrop-filter */
+      backdrop-filter: blur(30px);
+      --webkit-backdrop-filter: blur(30px);
+      background-color: rgba(29, 29, 29, 0.469);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 34px 0px;
+      position: relative;
+      transform: translateY(-80px);
+      //   flex-direction: column;
+      input {
+        width: 200px !important;
+        height: 40px !important;
+        border-radius: 50px !important;
+      }
+      .btn {
+        border-radius: 27.5px;
+        max-height: 40px;
+        padding: 5px 20px 0px 20px;
+        text-align: center;
+        box-shadow: 0px 3px 29px rgba(32, 0, 255, 0.6);
+        margin-top: 82px;
+
+        &:hover {
+          box-shadow: 0px 3px 29px rgba(34, 0, 255, 0.814);
+        }
+      }
+      .trace {
+        position: absolute;
+        z-index: -1;
+        height: 210px;
+        top: 56px;
+        left: 27.9px;
+      }
+    }
+  }
+}

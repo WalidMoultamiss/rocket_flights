@@ -1,0 +1,130 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+$primary: rgb(0, 21, 255);
+$bg-dark: black;
+@mixin scrollbars(
+  $size,
+  $foreground-color,
+  $background-color: mix($foreground-color, white, 50%)
+) {
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+
+  &hover ::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  // For Internet Explorer
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+body {
+  background-image: url(../views/images/533958.jpg);
+  background-size: cover;
+  background-position: center;
+    // background-blend-mode: $primary;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100%;
+  height: auto;
+  transition: 2s;
+  
+  .bg-dark {
+    background-color: rgb(0, 0, 0) !important;
+  }
+  @include scrollbars(
+        5px,
+        rgba(255, 255, 255, 0.227),
+        rgba(0, 0, 0, 0.786)
+      );
+  nav {
+    position: fixed !important;
+    width: 100%;
+    z-index: 10;
+    background-color: black !important;
+  }
+  .sub-body {
+    display: flex;
+    justify-content: flex-end;
+    .loginContainer {
+      @include scrollbars(
+        5px,
+        rgba(255, 255, 255, 0.227),
+        rgba(0, 0, 0, 0.786)
+      );
+      width: 323px;
+      height: 566px;
+      margin-right: 205px;
+      border-radius: 15px;
+      margin-top: 125px;
+      background: transparent;
+      backdrop-filter: blur(3px);
+      --webkit-backdrop-filter: blur(3px);
+      padding: 15px;
+      background-color: rgba(0, 0, 0, 0.15);
+      transition: 2s;
+      overflow-y: scroll;
+      &:hover {
+        backdrop-filter: blur(30px);
+        --webkit-backdrop-filter: blur(30px);
+      }
+
+      .bg-dark {
+        background-color: rgb(0, 0, 0) !important;
+      }
+      .bg-transparent {
+        background-color: rgba(0, 0, 0, 0) !important;
+      }
+      h1{
+          margin-bottom: calc(62px - 20px);
+          margin-top: calc(32px - 20px);
+          color: white;
+          font-size: 700;
+      }
+      form{
+          .mb-3{
+              label{
+                color: white;
+              }
+              input{
+                background-color: rgba(0, 0, 0, 0);
+                color: white;
+            }
+          }
+          .btn{
+              width: 100%;
+              margin-top: 50px;
+          }
+          
+      }
+      p{
+        margin-top: 25px;
+        color: white;
+        text-align: center;
+        transform: scale(0.8);
+    }
+
+    }
+  }
+}
