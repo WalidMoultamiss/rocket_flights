@@ -33,4 +33,29 @@
                     }
                 }
             }
+
+            public static function logout(){
+                session_destroy();
+            }
+            
+
+            public function auth(){
+                if(isset($_POST['login'])){
+                    $dataRegister['email'] = $_POST['email'];
+                    $dataRegister['password'] = $_POST['password'];
+
+                    $result = User::login($dataRegister);
+
+                    if($_POST['password'] == $result->userpassword){
+        
+                        $_SESSION['logged'] = true;
+                        $_SESSION['user'] = $result;
+                        Redirect::to('admin_page');
+        
+                    }else{
+                        Session::set('error','email ou mot de passe est incorrect');
+                        Redirect::to('loginPage');
+                    }
+                }
+            }
     }

@@ -12,8 +12,25 @@ if(isset($_POST['tof'])){
 ?>
 
 <?php
+$data = new UsersController();
+$users = $data->getAllUsers();
+
+print_r($_SESSION['user']);
+if($_SESSION['user']->role == '1'){
+    
+}
+else{
+    var_dump($_SESSION['role']);
+    Redirect::to('home'); 
+
+}
+
+?>
+
+<?php
     require './views/includes/navbar_admin.php';
 ?>
+
 <body>
     
     <section class="create_flight">

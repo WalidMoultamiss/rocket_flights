@@ -114,6 +114,7 @@
       </label>
       <form method="post" style="display: none;">
         <input type="text" name="passengers" value="0" class="passengers">
+        <input type="text" name="user" value="<?php echo $_SESSION['user']->id?>" class="passengers">
         <input type="text" name="id" value="<?php echo $flight['id']?>">
         <button class="buttonForm"  type="submit" ></button>
       </form>

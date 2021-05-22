@@ -1,3 +1,10 @@
+<?php
+if(isset($_POST['login'])){
+    $loginUser = new UsersController();
+    $login = $loginUser->auth();
+}
+?>
+
 <link rel="stylesheet" href="./css/loginStyle.css">
 </head>
 
@@ -29,20 +36,20 @@
     <div class="sub-body">
         <div class="loginContainer">
             <h1>Login</h1>
-            <form>
+            <form method="post">
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Email address</label>
-                  <input required type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <input required type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Password</label>
-                  <input required type="password" class="form-control" id="exampleInputPassword1">
+                  <input required type="password" name="password" class="form-control" id="exampleInputPassword1">
                 </div>
                 <div class="mb-3 form-check">
                   <input type="checkbox" class="form-check-input" id="exampleCheck1">
                   <label class="form-check-label" for="exampleCheck1">Remember me</label>
                 </div>
-                <button type="submit" class="btn btn-primary mb-6">Login</button>
+                <button type="submit" name="login" class="btn btn-primary mb-6">Login</button>
               </form>
               <p>don't have an account?, <a href="createAccountPage">Regester here</a></p>
         </div>

@@ -20,6 +20,9 @@
                     </li>
                 </ul>
             </div>
+<div>
+    <h5 style="color:white;margin-top3px; margin-right:20px">hello <?php echo $_SESSION['user']->full_name?></h5>
+</div>
             <div class="btn-group">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false">
@@ -33,7 +36,7 @@
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" type="button">Log out</a></li>
+                    <li><a href="logout" class="dropdown-item" type="button">Log out</a></li>
                 </ul>
             </div>
         </div>
