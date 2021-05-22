@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="27.836" height="21.041" viewBox="0 0 27.836 21.041">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="rocket" transform="translate(-554.784 -679.959)">
+    <path id="Tracé_2" data-name="Tracé 2" class="cls-1" d="M0-2A5.024,5.024,0,0,1,3.844-.893C5.506.582,6.646,3.9,6.646,3.9s3.511-.038,7.206,0,6.613,1.543,6.764,4.022-2.844,4.883-6.764,5.109a63.831,63.831,0,0,1-7.206,0s-1.243,3.435-2.8,4.56A9.646,9.646,0,0,1,0,19V13.029H-.969V3.9H0Z" transform="translate(562 682)"/>
+    <path id="Tracé_3" data-name="Tracé 3" class="cls-1" d="M5,0V9S-.216,9.063-.216,4.554,5,0,5,0Z" transform="translate(555 686)"/>
+  </g>
+</svg>

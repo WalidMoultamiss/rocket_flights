@@ -4,9 +4,9 @@
 
 <?php
 require_once './controllers/flightsController.php';
-if(isset($_POST['id'])){
-    $existUser = new FlightsController();
-    $flight = $existUser->addFlight();
+if(isset($_POST['tof'])){
+    $newUser = new FlightsController();
+    $newUser->addFlight();
 }
 
 ?>
@@ -20,7 +20,7 @@ if(isset($_POST['id'])){
 
         <form class="container-xxl form_container bg-black" style="max-width: 500px !important; " method="post">
 
-            <h1>Update flight</h1>
+            <h1>Create flight</h1>
             <div class="input-group w-100 ">
                 <div class="input-group mb-3 inputStyle px-5 " onmouseover="getAirPorts()">
                     <span class="input-group-text" id="basic-addon1">🛫</span>
@@ -37,14 +37,13 @@ if(isset($_POST['id'])){
                 </div>
                 <div class="input-group mb-3 inputStyle px-5">
                     <span class="input-group-text" id="basic-addon1">🚀</span>
-                    <!-- <input class="form-select" name="company" onfocusout="sufPicker(this)" id="inputGroupSelect02"> -->
-                    <input class="form-control" name="company" value="<?php echo($flight->company);?>">
-                        <!-- <option value="" selected disabled>Flight company</option>
+                    <select class="form-select" name="company" onfocusout="sufPicker(this)" id="inputGroupSelect02">
+                        <option value="" selected disabled>Flight company</option>
                         <option value="SpaceX">SpaceX</option>
                         <option value="Virgin galactic">Virgin galactic</option>
                         <option value="Boeing">Boeing</option>
-                        <option value="Blue Origin">Blue Origin</option> -->
-                    
+                        <option value="Blue Origin">Blue Origin</option>
+                    </select>
                 </div>
                 <div class="container">
                     <label for="datetime-local-Depart">Depart</label>

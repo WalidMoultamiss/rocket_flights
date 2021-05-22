@@ -19,7 +19,18 @@
                     echo $result;
                 }
             }
-            public function User(){
-                
+
+            // delete user
+            public function deleteUser(){
+                if(isset($_POST['id'])){
+                    $data['id']=$_POST['id'];
+                    $result = User::deleteUser($data);
+                    if($result==='ok'){
+                        
+                        Redirect::to('admin_page_users');
+                    }else{
+                        echo $result;
+                    }
+                }
             }
-}
+    }

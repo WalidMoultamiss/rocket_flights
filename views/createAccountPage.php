@@ -96,7 +96,6 @@ if(isset($_POST['submit'])){
                 document.querySelector("body > div > div > form > button").disabled=false;
                 document.querySelector("#date").style.border = "1px solid #ced4da";
             }
-            
         }
 
 

@@ -70,15 +70,11 @@ body {
 <body>
 <div class="text">
   <h1>404</h1>
-
-  <a href="home.php"><h3>Sorry we cant find what you are looking for Click me to go back</h3></a>
+  <a href="javascript:history.back()">Go Back</a>
+  <h3>Sorry we cant find what you are looking for Click me to go back</h3>
 </div>
-<a href="home" class="torch"></a>
+<a href="javascript:history.back()" class="torch"></a>
 <script>
-    // document.querySelector("body").addEventListener("mouseover",function(){
-    //     document.querySelector("body > div.torch").style.left=event.clientX+"px";
-    //     document.querySelector("body > div.torch").style.top=event.clientY+"px";
-    // })
       var torch = document.querySelector("body > a.torch")
       
     var onMouseMove = (e) => {
