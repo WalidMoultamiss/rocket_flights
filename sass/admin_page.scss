@@ -61,6 +61,7 @@ body {
     justify-content: center;
     align-items: center;
     .form_container {
+      @include scrollbars(5px, rgba(255, 255, 255, 0.227), rgba(0, 0, 0, 0.786));
       max-width: 900px !important;
       padding: 1rem;
       background-color: black !important;
@@ -134,4 +135,27 @@ body {
       width:45% !important;
     }
   }
+
+  .bodyModal{
+    border: 1px solid grey;
+    border-radius: 10px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 5px;
+    margin-bottom: 10px;
+  .inputStyle{
+    width: 100%;
+      height: 40px !important;
+      color: white;
+      background: transparent;
+      backdrop-filter: blur(30px);
+      --webkit-backdrop-filter: blur(30px);
+      background-color: rgba(203, 203, 203, 0.131);
+      border: 1px solid grey;
+      outline: none;
+      padding-left: 15px;
+      border-radius: 50px !important;
+      margin-bottom: 3px;
+  }
+}
 }

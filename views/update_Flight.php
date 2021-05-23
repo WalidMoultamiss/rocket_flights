@@ -69,9 +69,7 @@ if(isset($_POST['id'])){
                     </div>
                 </div>
             </div>
-
             <button type="submit" class="btn btn-primary">Create flight</button>
-
         </form>
     </section>
 

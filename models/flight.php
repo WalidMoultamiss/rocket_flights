@@ -21,8 +21,13 @@
             $statement = null;
         }
         static public function update($dataFlight){
-            $statement = DB::connect()->prepare("UPDATE flights SET fromf = ?,tof = ?,company = ?,depart = ?,timing = ?,price = ?,place = ?,retu = ? WHERE id =?");
-            $statement->execute([$dataFlight['fromf'],$dataFlight['tof'],$dataFlight['company'],$dataFlight['depart'],$dataFlight['timing'],$dataFlight['price'],$dataFlight['place'],$dataFlight['retu'],$dataFlight['id']]);
+            $statement = DB::connect()->prepare("UPDATE flights SET fromf = ?,tof = ?,company = ?,depart = ?,price = ?,place = ?,retu = ? WHERE id =?");
+            $statement->execute([$dataFlight['fromf'],$dataFlight['tof'],$dataFlight['company'],$dataFlight['depart'],$dataFlight['price'],$dataFlight['place'],$dataFlight['retu'],$dataFlight['id']]);
+            $statement = null;
+        }
+        static public function updatePlace($newPlaces,$id){
+            $statement = DB::connect()->prepare("UPDATE flights SET place = ? WHERE id =?");
+            $statement->execute([$newPlaces,$id]);
             $statement = null;
         }
 

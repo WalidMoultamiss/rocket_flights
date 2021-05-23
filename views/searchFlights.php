@@ -1,12 +1,14 @@
 <?php
     require_once './controllers/flightsController.php';
+    require_once './controllers/reservationController.php';
+    if(isset($_POST['reservation'])){
+      $newReservation = new ReservationController();
+        $newReservation->addReservation();
+    
+  }
     $data = new FlightsController();
     $flights = $data->getAllFlights();
-    if(isset($_POST['submit'])){
-      Redirect::to('passengers');
-      $data = new FlightsController();
-      $newUser = $data->addReservation();
-  }
+    
 ?>
 <link rel="stylesheet" href="./css/searchFlights.css">
 </head>
@@ -80,7 +82,7 @@
     <section class="section3">
       
       <?php foreach($flights as $flight):?>
-      <label onmouseover="passenger(this)" class="flightContainer" for="inputID">
+      <label onmouseover="passengers()" class="flightContainer" for="inputID">
         <div class="flightHolder">
           <div class="flightDiv" title="company">
             <input style="display:none" type="text" disabled name="company" value="<?php echo $flight['company']?>">
@@ -112,15 +114,16 @@
           </div>
         </div>
       </label>
+      
       <form method="post" style="display: none;">
         <input type="text" name="passengers" value="0" class="passengers">
-        <input type="text" name="user" value="<?php echo $_SESSION['user']->id?>" class="passengers">
+        <input type="text" name="userID" value="<?php echo $_SESSION['user']->id?>">
         <input type="text" name="id" value="<?php echo $flight['id']?>">
-        <button class="buttonForm"  type="submit" ></button>
+        <button class="buttonForm" name="reservation"  type="submit" ></button>
       </form>
+
       <?php endforeach;?>
     </section>
-
   <script>
     var textOnMouse = document.querySelector("#textOnMouse")
     var Paths = document.querySelectorAll("path")
@@ -179,6 +182,14 @@
     })
   </script>
   
+  <script>
+    function passengers(){
+      document.querySelectorAll('.passengers').forEach(e=>{e
+        e.value=document.querySelector("#inputGroupSelect").value
+      })
+      
+    }
+  </script>
 
   <script src="./views/JS/airports.js"></script>
   <script src="./views/JS/searchFlight.js"></script>

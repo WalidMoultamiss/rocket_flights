@@ -15,12 +15,11 @@ if(isset($_POST['tof'])){
 $data = new UsersController();
 $users = $data->getAllUsers();
 
-print_r($_SESSION['user']);
 if($_SESSION['user']->role == '1'){
     
 }
 else{
-    var_dump($_SESSION['role']);
+    
     Redirect::to('home'); 
 
 }

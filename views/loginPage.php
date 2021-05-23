@@ -4,6 +4,11 @@ if(isset($_POST['login'])){
     $login = $loginUser->auth();
 }
 ?>
+<?php
+if($_SESSION){
+    Redirect::to('admin_page');
+}
+?>
 
 <link rel="stylesheet" href="./css/loginStyle.css">
 </head>
@@ -36,6 +41,7 @@ if(isset($_POST['login'])){
     <div class="sub-body">
         <div class="loginContainer">
             <h1>Login</h1>
+            
             <form method="post">
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Email address</label>

@@ -20,11 +20,32 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Pricing</a>
           </li>
+          
         </ul>
       </div>
     </div>
+    <div style="width: 100%;display: flex;justify-content: flex-end;">
+    <?php 
+    if($_SESSION){
+    echo('<div style="width:auto;"><h4 style="color:white">hello ');
+    echo $_SESSION['user']->full_name;
+    echo('</h4></div>');
+    }
+    ?>
+  </div>
     <div class="container-fluid d-flex justify-content-end ">
-        <a href="loginPage" class="btn btn-outline-light px-4 " type="submit">Login</a>
+    <?php
+if($_SESSION){
+  if($_SESSION['user']->role == '1'){
+    echo ('<a href="admin_page" class="btn btn-outline-light px-4 " type="submit">📊 dashboard</a>');
+  }
+        echo ('<a href="logout" class="btn btn-outline-light px-4 " type="submit">logout</a>');
+        
+      }
+      else{
+
+        echo ('<a href="loginPage" class="btn btn-outline-light px-4 " type="submit">Login</a>');
+      }?>
     </div>
   </nav>
 
@@ -38,8 +59,9 @@
     </div>
     <div class="home-right">
         <h2>
-            Up to 20x faster than <br>aeroplane flights
+            Up to 20x faster than <br>airoplane flights
         </h2>
+
 
 
     </div>

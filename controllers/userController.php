@@ -19,6 +19,24 @@
                     echo $result;
                 }
             }
+        public function addPassenger(){
+            $firstname=$_POST['firstname'];
+            $lastname=$_POST['lastname'];
+            $passport=$_POST['passport'];
+            $dateofbirth=$_POST['dateofbirth'];
+
+                for($i=0;$i<count($firstname);$i++)
+                {
+                    $statement = DB::connect()->prepare("INSERT INTO passengers (firstname,lastname,passport,dateofbirth) values('$firstname[$i]','$lastname[$i]','$passport[$i]','$dateofbirth[$i]')");
+                    if($statement->execute()){
+                        header('location:'.BASE_URL.'loginPage');
+                    }
+                    else{
+                        echo ('error');
+                    }
+                    $statement=null;
+                }
+            }
 
             // delete user
             public function deleteUser(){
@@ -53,7 +71,7 @@
                         Redirect::to('admin_page');
         
                     }else{
-                        Session::set('error','email ou mot de passe est incorrect');
+                        Session::set('error','email or password is incorrect');
                         Redirect::to('loginPage');
                     }
                 }
