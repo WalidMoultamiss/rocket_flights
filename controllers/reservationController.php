@@ -4,7 +4,8 @@ public function addReservation(){
     $data = array(
             'id'=> $_POST['id'],
             'userID'=> $_POST['userID'],
-            'passenger'=>$_POST['passengers']
+            'passenger'=>$_POST['passengers'],
+            'price'=>$_POST['price']
         );
         $_SESSION['passenger'] = $_POST['passengers'];
         $result = Reservation::addReservation($data);
@@ -17,6 +18,10 @@ public function addReservation(){
             echo $result;
         }
     
+}
+public function getAllReservations(){
+    $reservation = Reservation::getAll();
+    return $reservation;
 }
 }
 ?>

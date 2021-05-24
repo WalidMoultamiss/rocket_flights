@@ -8,7 +8,7 @@ require_once './controllers/reservationController.php';
 
 
 $home = new homeController();
-$pages = ['add_Flight','passengerPage','logout','passengers','admin_page_flights','admin_page','admin_page_users','add_User','delete_Flight','delete_User','home','update_Flight','update_User','loginPage','createAccountPage','searchFlights'];
+$pages = ['add_Flight','admin_page_reservations','passengerPage','logout','passengers','admin_page_flights','admin_page','admin_page_users','add_User','delete_Flight','delete_User','home','update_Flight','update_User','loginPage','createAccountPage','searchFlights'];
 if(isset($_GET['page'])){
     if(in_array($_GET['page'],$pages)){
         $page = $_GET['page'];

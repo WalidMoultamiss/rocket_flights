@@ -1,3 +1,9 @@
+<?php
+$money = new FlightsController();
+$moneyGET = $money->lacaisse();
+print_r($moneyGET);
+?>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="<?php echo BASE_URL;?>">
@@ -23,6 +29,9 @@
 <div>
     <h5 style="color:white;margin-top3px; margin-right:20px">hello <?php echo $_SESSION['user']->full_name?></h5>
 </div>
+<div>
+<h5  style="color:grey;margin-top3px; margin-right:20px">finance: <?php print_r($moneyGET['count'])?>$</h5>
+</div>
             <div class="btn-group">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false">
@@ -32,7 +41,7 @@
                     <li><a class="dropdown-item" href="admin_page_users" type="button">User's dashboard</a></li>
                     <li><a class="dropdown-item" href="admin_page_flights" type="button">Flight's dashboard</a></li>
                     <li><a class="dropdown-item" href="admin_page" type="button">New flight</a></li>
-                    <li><a class="dropdown-item" href="admin_reservation" type="button">Reservations</a></li>
+                    <li><a class="dropdown-item" href="admin_page_reservations" type="button">Reservations</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>

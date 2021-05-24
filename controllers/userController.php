@@ -4,6 +4,9 @@
             $users = User::getAll();
             return $users;
             }
+
+
+
         public function addUser(){
             $dataRegister = array(
                     'full_name'=> $_POST['fullname'],

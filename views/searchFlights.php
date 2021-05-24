@@ -8,6 +8,8 @@
   }
     $data = new FlightsController();
     $flights = $data->getAllFlights();
+
+
     
 ?>
 <link rel="stylesheet" href="./css/searchFlights.css">
@@ -119,6 +121,7 @@
         <input type="text" name="passengers" value="0" class="passengers">
         <input type="text" name="userID" value="<?php echo $_SESSION['user']->id?>">
         <input type="text" name="id" value="<?php echo $flight['id']?>">
+        <input type="text" name="price" value="<?php echo $flight['price']?>">
         <button class="buttonForm" name="reservation"  type="submit" ></button>
       </form>
 

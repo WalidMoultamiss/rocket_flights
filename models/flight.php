@@ -15,6 +15,15 @@
             return $result = $statement->fetchAll();
         }
 
+        static public function getCaisse(){
+            $sum =0;
+            $stmnt = DB::connect()->prepare('SELECT SUM(dollarsmoney) AS count FROM dollarsmoney');
+            $stmnt->execute();
+            $row = $stmnt->fetch(PDO::FETCH_ASSOC);
+            $sum = $row['count'];
+            return $row;
+        }
+
         static public function add($dataFlight){
             $statement = DB::connect()->prepare("INSERT INTO flights SET fromf = ?,tof = ?,company = ?,depart = ?,timing = ?,price = ?,place = ?,retu = ?");
             $statement->execute([$dataFlight['fromf'],$dataFlight['tof'],$dataFlight['company'],$dataFlight['depart'],$dataFlight['timing'],$dataFlight['price'],$dataFlight['place'],$dataFlight['retu']]);

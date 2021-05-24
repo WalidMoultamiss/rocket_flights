@@ -58,6 +58,11 @@
                 }
             }
         }
+        public function lacaisse(){
+            $monneeyy = Flight::getCaisse();
+            print_r($monneeyy);
+            return($monneeyy);
+        }
 
         // public function getOneFlight(){
         //     if(isset($_POST['id'])){
