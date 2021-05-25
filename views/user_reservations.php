@@ -172,7 +172,7 @@
                 </div>
                 </div>
                     <?php endforeach;?>
-                    <form method="post" action="">
+                    <form style="display: none;" method="post" action="">
                       <input type="text" name="divContent" id="inputMe" value="lfdsjmlfjsdf">
                       <button type="submit" name="" id="print"></button>
                     </form>

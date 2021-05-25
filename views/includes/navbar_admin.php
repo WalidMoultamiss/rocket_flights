@@ -1,7 +1,8 @@
 <?php
 $money = new FlightsController();
 $moneyGET = $money->lacaisse();
-print_r($moneyGET);
+
+$notification = NotifMSG::getALL();
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -35,8 +36,22 @@ print_r($moneyGET);
             <div class="btn-group">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false">
+                    🔔(<?php echo count($notification)?>)
+                </button>
+                
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+                <?php foreach ($notification as $n){ ?>
+                    <li><a class="dropdown-item" href="" type="button"><?php echo $n['notif_message']?></a></li>
+                    <?php }?>
+                </ul>
+                
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
                     Menu
                 </button>
+                
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
                     <li><a class="dropdown-item" href="admin_page_users" type="button">User's dashboard</a></li>
                     <li><a class="dropdown-item" href="admin_page_flights" type="button">Flight's dashboard</a></li>

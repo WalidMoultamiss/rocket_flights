@@ -28,6 +28,10 @@
             $statement = DB::connect()->prepare("INSERT INTO flights SET fromf = ?,tof = ?,company = ?,depart = ?,timing = ?,price = ?,place = ?,retu = ?");
             $statement->execute([$dataFlight['fromf'],$dataFlight['tof'],$dataFlight['company'],$dataFlight['depart'],$dataFlight['timing'],$dataFlight['price'],$dataFlight['place'],$dataFlight['retu']]);
             $statement = null;
+            $msg = 'a flight has been added with a price of '.$dataFlight['price'];
+            $dataUser = 0;
+            $to = 'admin';
+            NotifMSG::notif($msg,$dataUser,$to);
         }
 
 
@@ -48,11 +52,19 @@
             $statement = DB::connect()->prepare("UPDATE flights SET fromf = ?,tof = ?,company = ?,depart = ?,price = ?,place = ?,retu = ? WHERE id =?");
             $statement->execute([$dataFlight['fromf'],$dataFlight['tof'],$dataFlight['company'],$dataFlight['depart'],$dataFlight['price'],$dataFlight['place'],$dataFlight['retu'],$dataFlight['id']]);
             $statement = null;
+            $msg = 'the flight with id:' .$dataFlight['id']. 'has been updated';
+            $dataUser = 0;
+            $to = 'admin';
+            NotifMSG::notif($msg,$dataUser,$to);
         }
-        static public function updatePlace($newPlaces,$id){
+        static public function updatePlace($newPlaces,$id,$seats){
             $statement = DB::connect()->prepare("UPDATE flights SET place = ? WHERE id =?");
             $statement->execute([$newPlaces,$id]);
             $statement = null;
+            $msg = $seats.' places has been reserved';
+            $dataUser = 0;
+            $to = 'admin';
+            NotifMSG::notif($msg,$dataUser,$to);
         }
 
         static public function getFlight($data){

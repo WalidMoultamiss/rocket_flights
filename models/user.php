@@ -26,7 +26,10 @@
         static public function UsersController($dataRegister){
             $statement = DB::connect()->prepare('INSERT INTO users(full_name,email,userpassword,passport,dateofbirth) VALUES (?, ?, ?, ?, ?)');
             if($statement->execute([$dataRegister['full_name'],$dataRegister['email'],$dataRegister['password'],$dataRegister['passport'],$dataRegister['date']])){
-                
+            $msg = 'a user has been added full name:'.$dataRegister['full_name'];
+            $dataUser = 'new user';
+            $to = 'admin';
+            NotifMSG::notif($msg,$dataUser,$to);
             }else{
                 return 'error';
             }

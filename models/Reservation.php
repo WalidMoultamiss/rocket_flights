@@ -7,20 +7,25 @@
             $stmt = DB::connect()->prepare($query);
             $stmt->execute(array(":id" =>$data['id']));
             $flight = $stmt->fetch(PDO::FETCH_OBJ);
+            $seats = $data['passenger']+1;
             $newPlaces = $flight->place-1-$data['passenger'];
             $moneyGet=($data['passenger']+1)*$data['price'];
 
             $statement = DB::connect()->prepare("INSERT INTO dollarsMoney(dollarsMoney) VALUES ('$moneyGet')");
             $statement->execute();
 
+            $msg = 'a flight has been reserved from the user who has the id:'.$data['userID'];
+            $dataUser = $data['userID'];
+            $to = 'admin';
+            NotifMSG::notif($msg,$dataUser,$to);
             $id = $flight->id;
-            $result = Flight::updatePlace($newPlaces,$id);
+            $result = Flight::updatePlace($newPlaces,$id,$seats);
                 if($result==='ok'){
                     header('location:'.BASE_URL.'searchFlights');
                 }else{
                     echo $result;
                 }
-            print_r($newPlaces);
+            
             }else{
                 return 'error';
             }
