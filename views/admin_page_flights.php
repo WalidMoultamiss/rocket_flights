@@ -1,11 +1,12 @@
 <?php
-    require_once './controllers/flightsController.php';
-    $data = new FlightsController();
-    $flights = $data->getAllFlights();
+    
     if(isset($_POST['update'])){
         $updateFlight = new FlightsController();
         $flight = $updateFlight->updateFlight();
     }
+    $data = new FlightsController();
+    $flights = $data->getAllFlights();
+    
     
 ?>
 <?php

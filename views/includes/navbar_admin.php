@@ -1,8 +1,12 @@
 <?php
+if(isset($_POST['clear'])){
+    NotifMSG::clear();
+}
 $money = new FlightsController();
 $moneyGET = $money->lacaisse();
 
-$notification = NotifMSG::getALL();
+$notification = NotifMSG::getMyNotufication();
+
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -39,7 +43,12 @@ $notification = NotifMSG::getALL();
                     🔔(<?php echo count($notification)?>)
                 </button>
                 
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+                <ul style="max-height:500px;overflow-y:scroll;" class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+                    <div style="width: 100%; display: flex;justify-content: flex-end;padding-right: 10px;">
+                        <form method="post">
+                            <input type='submit' name="clear" value="clear" class="btn btn-danger btn-sm" style="margin-left:10px" >
+                        </form>
+                </div>
                 <?php foreach ($notification as $n){ ?>
                     <li><a class="dropdown-item" href="" type="button"><?php echo $n['notif_message']?></a></li>
                     <?php }?>
