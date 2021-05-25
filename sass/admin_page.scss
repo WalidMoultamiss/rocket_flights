@@ -158,4 +158,23 @@ body {
       margin-bottom: 3px;
   }
 }
+.Dashboard_user{
+  margin-top: 72px;
+  .container-xxl{
+    width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
+  }
+  
+
+  .ticketBody{
+    color: white;
+    background-image: url(../views/images/ticket.svg);
+    width: calc(175px + 100px);
+    height: calc(300px + 170px);
+    background-size: cover;
+  }
+}
 }

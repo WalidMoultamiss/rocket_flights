@@ -15,25 +15,24 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="user_reservations">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+            <a class="nav-link" href="searchFlights">Search flights</a>
           </li>
           
         </ul>
       </div>
     </div>
-    <div style="width: 100%;display: flex;justify-content: flex-end;">
+    
+    <div class="container-fluid d-flex justify-content-end ">
     <?php 
     if($_SESSION){
-    echo('<div style="width:auto;"><h4 style="color:white">hello ');
+    echo('<div style="width:auto;margin-right:10px"><h4 style="color:white">hello ');
     echo $_SESSION['user']->full_name;
     echo('</h4></div>');
     }
     ?>
-  </div>
-    <div class="container-fluid d-flex justify-content-end ">
     <?php
 if($_SESSION){
   if($_SESSION['user']->role == '1'){

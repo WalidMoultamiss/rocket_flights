@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="401.79" height="722" viewBox="0 0 401.79 722">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3a3a3a;
+      }
+
+      .cls-2 {
+        fill: #2b2b3e;
+      }
+
+      .cls-3 {
+        fill: none;
+        stroke: #707070;
+        stroke-dasharray: 11;
+      }
+
+      .cls-4 {
+        fill: #fff;
+        font-size: 69px;
+        font-family: C39HrP24DhTt;
+      }
+    </style>
+  </defs>
+  <g id="Groupe_1" data-name="Groupe 1" transform="translate(-1327 -327)">
+    <path id="Tracé_1" data-name="Tracé 1" class="cls-1" d="M7.956,0H393.834a7.978,7.978,0,0,1,7.956,8V96.111a7,7,0,0,0-6.02,7.3,7.678,7.678,0,0,0,6.02,7.747V494.351s-12.646,1.147-12.646,14.7,12.646,13.129,12.646,13.129V669a7.978,7.978,0,0,1-7.956,8H7.956A7.978,7.978,0,0,1,0,669V523.089s14.367-1.338,14.367-16.017S0,491.866,0,491.866V110.18s7.956-.156,7.956-8.342S0,93.145,0,93.145V8A7.978,7.978,0,0,1,7.956,0Z" transform="translate(1327 327)"/>
+    <path id="Tracé_2" data-name="Tracé 2" class="cls-2" d="M7.956,0H393.834a7.978,7.978,0,0,1,7.956,8V96.111a7,7,0,0,0-6.02,7.3,7.678,7.678,0,0,0,6.02,7.747L0,110.18s7.956-.156,7.956-8.342S0,93.145,0,93.145V8A7.978,7.978,0,0,1,7.956,0Z" transform="translate(1327 327)"/>
+    <line id="Ligne_1" data-name="Ligne 1" class="cls-3" x2="363" transform="translate(1346.5 837.5)"/>
+    <text id="_987293873123987_" data-name="987293873123987
+" class="cls-4" transform="translate(1363 952)"><tspan x="0" y="0">987293873123987</tspan><tspan x="0" y="83"></tspan></text>
+  </g>
+</svg>

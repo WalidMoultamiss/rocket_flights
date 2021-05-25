@@ -25,6 +25,16 @@
                 }
             
         }
+         public function selectFlight(){
+             if(isset($_POST['search'])){
+                    $from = $_POST['from'];
+                    $to = $_POST['to'];
+                    $depart =$_POST['depart'];
+                    $pa = $_POST['pa'];
+                    $result = Flight::search($from,$to,$depart,$pa);
+                    return $result;
+            }
+        }
          public function updateFlight(){
 
             $dataFlight = array(

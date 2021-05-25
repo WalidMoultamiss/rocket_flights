@@ -29,6 +29,21 @@
             $statement->execute([$dataFlight['fromf'],$dataFlight['tof'],$dataFlight['company'],$dataFlight['depart'],$dataFlight['timing'],$dataFlight['price'],$dataFlight['place'],$dataFlight['retu']]);
             $statement = null;
         }
+
+
+        static public function search($from,$to,$depart,$pa){
+            $statement = DB::connect()->prepare("SELECT * from flights where depart >= ? and fromf = ? and tof = ? and place >= ?");
+            // $statement = DB::connect()->prepare("SELECT * from flights where depart >='2021-05-03' and fromf ='ATL: Hartsfield Jackson Atlanta Intl - Atlanta - United States' and tof ='FRA: Frankfurt Main - Frankfurt - Germany' and place>= 2");
+            $statement->execute([$depart,$from,$to,$pa]);
+            // $statement->execute();
+            // var_dump($statement);
+            $result1 = $statement->fetchAll(PDO::FETCH_ASSOC);
+            
+            return $result1;
+        }
+
+
+
         static public function update($dataFlight){
             $statement = DB::connect()->prepare("UPDATE flights SET fromf = ?,tof = ?,company = ?,depart = ?,price = ?,place = ?,retu = ? WHERE id =?");
             $statement->execute([$dataFlight['fromf'],$dataFlight['tof'],$dataFlight['company'],$dataFlight['depart'],$dataFlight['price'],$dataFlight['place'],$dataFlight['retu'],$dataFlight['id']]);

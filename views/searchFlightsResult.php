@@ -3,21 +3,11 @@
     require_once './controllers/reservationController.php';
     if(isset($_POST['reservation'])){
       $newReservation = new ReservationController();
-        $newReservation->addReservation();
-    
+      $newReservation->addReservation();
   }
-    $data = new FlightsController();
-    $flights = $data->getAllFlights();
+      $newSearch = new FlightsController();
+      $search = $newSearch->selectFlight();
 
-    $search=[];
-    if(isset($_POST['search'])){
-    $newSearch = new FlightsController();
-    $search = $newSearch->selectFlight();
-    var_dump($search);
-    }
-      
-
-    
 ?>
 <link rel="stylesheet" href="./css/searchFlights.css">
 </head>
@@ -68,7 +58,6 @@
         <select class="form-select selectStyle " name="from" value="" id="inputGroupSelect01">
           <option value="" selected disabled>from</option>
           <option value="ATL: Hartsfield Jackson Atlanta Intl - Atlanta - United States">ATL: Hartsfield Jackson Atlanta Intl - Atlanta - United States</option>
-          <option value="LAX: Los Angeles Intl - Los Angeles - United States">LAX: Los Angeles Intl - Los Angeles - United States</option>
 
         </select>
       </div>
@@ -76,7 +65,6 @@
         <select class="form-select selectStyle" name="to" id="inputGroupSelect02">
           <option value="" selected disabled>to</option>
           <option value="FRA: Frankfurt Main - Frankfurt - Germany">FRA: Frankfurt Main - Frankfurt - Germany</option>
-          <option value="LAX: Los Angeles Intl - Los Angeles - United States">LAX: Los Angeles Intl - Los Angeles - United States</option>
         </select>
       </div>
       <div class="input-group mb-3 inputDiv">
@@ -91,56 +79,10 @@
     </form>
     <!-- section number 2 -->
 
-    <section class="section3">
-      <?php foreach($search as $search):?>
-      <div onmouseover="passengers()" class="flightContainer" for="inputID">
-        <div class="flightHolder">
-          <div class="flightDiv" title="company">
-            <input style="display:none" type="text" disabled name="company" value="<?php echo $search['company']?>">
-            <?php echo($search['company'])?>
-          </div>
-          <div class="flightDiv" title="from">
-            <?php echo $search['fromf']?>
-          </div>
-          <div style="max-width: 20px !important;height: 100%;display: flex;align-items: center;">
-            <img src="./views/images/rocket.svg" alt="rocket">
-          </div>
-          <div class="flightDiv" title="to">
-            <?php echo $search['tof']?>
-          </div>
-          <div class="flightDiv" title="depart">
-            <?php echo $search['depart']?>
-          </div>
-          <div class="flightDiv" title="return">
-            <?php echo $search['retu']?>
-          </div>
-          <div class="flightDiv" title="timing">
-            <?php echo $search['timing']?>
-          </div>
-          <div class="flightDiv" title="places">
-            <?php echo $search['place']?> places
-          </div>
-          <div class="flightDiv" title="Price">
-            <?php echo $search['price']?> $
-          </div>
-        </div>
-      </div>
-      
-      <form method="post" style="display: none;">
-        <input type="text" name="passengers" value="0" class="passengers">
-        <input type="text" name="userID" value="<?php echo $_SESSION['user']->id?>">
-        <input type="text" name="id" value="<?php echo $search['id']?>">
-        <input type="text" name="price" value="<?php echo $search['price']?>">
-        <button class="buttonForm" name="reservation"  type="submit" ></button>
-      </form>
 
-      <?php endforeach;?>
-    </section>
-
-        <div style="width:100vw;margin-bottom: 10px;margin-top: 10px; height:2px; background-color:#fff"></div>
+        <div style="width:100vw;height:2px; background-color:#fff"></div>
     <section class="section3">
-      
-      <?php foreach($flights as $flight):?>
+      <?php foreach($search as $flight):?>
       <label onmouseover="passengers()" class="flightContainer" for="inputID">
         <div class="flightHolder">
           <div class="flightDiv" title="company">

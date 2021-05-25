@@ -41,8 +41,10 @@ let label=document.querySelectorAll("label")
         // e.children[5].style.color="black";
       })
       
-      var date = e.children[4].innerHTML.split`T`[0];
-      var time = e.children[4].innerHTML.split`T`[1];
+      var date = e.children[4].innerText.split` `[0];
+      var time = e.children[4].innerText.split` `[1];
+      var time11 = time.split`:`[0]
+      var time12 = time.split`:`[1]
       
       e.children[4].innerHTML=`
       <div
@@ -53,17 +55,19 @@ let label=document.querySelectorAll("label")
           width:132px;
           ">
         <h3 style="margin-bottom:0px;
-        font-weight: 200 !important;">${time}</h3>
+        font-weight: 200 !important;">${time11}:${time12}</h3>
         <br>
         <h6>${date}</h6>
       </div>
       `
-      var date2 = e.children[5].innerHTML.split`T`[0];
-      var time2 = e.children[5].innerHTML.split`T`[1];
+      var date2 = e.children[5].innerText.split` `[0];
+      var time2 = e.children[5].innerText.split` `[1];
+      var time22 = time2.split`:`[0]
+      var time23 = time2.split`:`[1]
       e.children[5].innerHTML=`
       <div style="display:flex;justify-content:center;flex-wrap:wrap;width:132px">
         <h3 style="margin-bottom:0px;
-        font-weight: 200 !important;">${time2}</h3>
+        font-weight: 200 !important;">${time22}:${time23}</h3>
         <br>
         <h6>${date2}</h6>
       </div>

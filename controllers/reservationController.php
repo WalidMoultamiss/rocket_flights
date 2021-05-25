@@ -17,10 +17,13 @@ public function addReservation(){
         }else{
             echo $result;
         }
-    
 }
 public function getAllReservations(){
     $reservation = Reservation::getAll();
+    return $reservation;
+}
+public function getMyReservations(){
+    $reservation = Reservation::MyReservations();
     return $reservation;
 }
 }

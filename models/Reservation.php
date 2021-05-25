@@ -35,7 +35,7 @@
             $statement->close();
             $statement = null;
         }
-        static public function getMyReservations(){
+        static public function MyReservations(){
             $thisID=$_SESSION['user']->id;
             $statement = DB::connect()->prepare("SELECT * FROM flights f,reservations r,users u WHERE f.id=r.flight_foreignkey AND u.id=r.user_foreignkey AND u.id='$thisID'");
             $statement->execute();
