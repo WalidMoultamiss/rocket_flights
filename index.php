@@ -13,6 +13,7 @@ if(isset($_GET['page'])){
     if(in_array($_GET['page'],$pages)){
         $page = $_GET['page'];
         $home->index($page);
+        return $page;
     }else{
         include('views/includes/404.php');
     }

@@ -1,8 +1,8 @@
 <?php
+    $_SESSION['div']=$_POST['divContent'];
     $data = new ReservationController();
     $reservation = $data->getMyReservations();
-    $_SESSION['div']=$_POST['divContent'];
-
+    
 ?>
 
 
@@ -213,6 +213,7 @@
       }
       function getDiv2(){
         var myWindow = window.open("likan", "MsgWindow", "width=291,height=480");
+        setTimeout(function(){ myWindow.close() }, 3000);
       }
 </script>
 </body>

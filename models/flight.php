@@ -6,7 +6,6 @@
             return $statement->fetchAll();
             $statement->close();
             $statement = null;
-            print_r($flight);
 
         }
         static public function addReservation($dataFlight){
@@ -46,8 +45,6 @@
             return $result1;
         }
 
-
-
         static public function update($dataFlight){
             $statement = DB::connect()->prepare("UPDATE flights SET fromf = ?,tof = ?,company = ?,depart = ?,price = ?,place = ?,retu = ? WHERE id =?");
             $statement->execute([$dataFlight['fromf'],$dataFlight['tof'],$dataFlight['company'],$dataFlight['depart'],$dataFlight['price'],$dataFlight['place'],$dataFlight['retu'],$dataFlight['id']]);
@@ -79,7 +76,6 @@
                 echo 'error' . $ex->getMessage();
             }
         }
-        
         static public function deleteFlight($data){
             $id = $data['id'];
             try{
@@ -92,6 +88,13 @@
             }catch(PDOExeption $ex){
                 echo 'error' . $ex->getMessage();
             }
+        }
+    }
+    class Airport {
+        static public function getAllAirports(){
+            $statement = DB::connect()->prepare('SELECT * FROM airports');
+            $statement->execute();
+            return $statement->fetchAll();
         }
     }
 ?>

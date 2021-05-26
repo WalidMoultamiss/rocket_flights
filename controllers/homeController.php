@@ -2,6 +2,7 @@
 class homeController{
     public function index($page){
         include('views/'.$page.'.php');
+        echo $page;
     }
 }
 class NotifMSG{

@@ -3,11 +3,14 @@
     require_once './controllers/reservationController.php';
     if(isset($_POST['reservation'])){
       $newReservation = new ReservationController();
-        $newReservation->addReservation();
+      $newReservation->addReservation();
     
   }
     $data = new FlightsController();
     $flights = $data->getAllFlights();
+
+    $airport = new AirportController();
+    $airports = $airport->getAirports();
 
     $search=[];
     if(isset($_POST['search'])){
@@ -67,9 +70,9 @@
       <div class="input-group mb-3 " onmouseover="getAirPorts()">
         <select class="form-select selectStyle " name="from" value="" id="inputGroupSelect01">
           <option value="" selected disabled>from</option>
-          <option value="ATL: Hartsfield Jackson Atlanta Intl - Atlanta - United States">ATL: Hartsfield Jackson Atlanta Intl - Atlanta - United States</option>
-          <option value="LAX: Los Angeles Intl - Los Angeles - United States">LAX: Los Angeles Intl - Los Angeles - United States</option>
-
+          <?php foreach ($airports as $a):?>
+          <option value="<?php echo $a['full_name']?>"><?php echo $a['full_name']?></option>
+          <?php endforeach;?>
         </select>
       </div>
       <div class="input-group mb-3 " onmouseover="getAirPorts()">

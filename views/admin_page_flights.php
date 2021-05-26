@@ -12,7 +12,7 @@
 <?php
     require_once './views/includes/navbar_admin.php';
 ?>
-
+<?php $page ?>
 <link rel="stylesheet" href="./css/admin_page.css">
 </head>
 
@@ -20,8 +20,6 @@
     <section class="Dashboard_user">
 
         <div class="container-xxl">
-
-            <h1>Create flight</h1>
             <table class="table" style="color: white !important;">
                 <thead>
                     <tr>

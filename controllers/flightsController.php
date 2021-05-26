@@ -97,4 +97,10 @@
             }
         }
     }
+    class AirportController{
+        public function getAirports(){
+                $airports = Airport::getAllAirports();
+                return $airports;
+        }
+    }
 ?>

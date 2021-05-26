@@ -38,17 +38,24 @@ $notification = NotifMSG::getMyNotufication();
 <h5  style="color:grey;margin-top3px; margin-right:20px">finance: <?php print_r($moneyGET['count'])?>$</h5>
 </div>
             <div class="btn-group">
+                
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     🔔(<?php echo count($notification)?>)
                 </button>
                 
                 <ul style="max-height:500px;overflow-y:scroll;" class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-                    <div style="width: 100%; display: flex;justify-content: flex-end;padding-right: 10px;">
+                <?php if(count($notification)!=0){
+                            echo '<div style="width: 100%; display: flex;justify-content: flex-end;padding-right: 10px;">
                         <form method="post">
-                            <input type='submit' name="clear" value="clear" class="btn btn-danger btn-sm" style="margin-left:10px" >
+                            <input type="submit" name="clear" value="clear" class="btn btn-danger btn-sm" style="margin-left:10px" >
                         </form>
-                </div>
+                    </div>';
+                }?>
+                <?php if(count($notification)==0){
+                            echo ('<p style="margin-left: 15px; min-width:200px">no new notification</p>'
+                            );
+                        }?>
                 <?php foreach ($notification as $n){ ?>
                     <li><a class="dropdown-item" href="" type="button"><?php echo $n['notif_message']?></a></li>
                     <?php }?>
