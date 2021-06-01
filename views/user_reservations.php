@@ -1,4 +1,5 @@
 <?php
+    $_SESSION['div']=NULL;
     $_SESSION['div']=$_POST['divContent'];
     $data = new ReservationController();
     $reservation = $data->getMyReservations();
@@ -163,7 +164,7 @@
                     </div>
                   </div>
                   <div style="width: 275px;transform: translateY(-117px); display: flex;justify-content: center;height: 22px;align-items: flex-end;">
-                    <label for="print" type="submit-delete" id="<?php echo $rsrv['id']?>" class="btn btn-primary btn-sm btnprint"  onmousemove="getDiv(id)" onclick="getDiv2(id)">print</label>
+                    <label for="print" type="submit-delete" id="<?php echo $rsrv['id']?>" class="btn btn-primary btn-sm btnprint"  onmousemove="getDiv(id)">print</label>
                   
                     <form method="post" action="" class="btn-group" role="group" aria-label="Basic mixed styles example">
                           <button type="submit-delete" id="<?php echo $rsrv['id']?>"class="btn btn-danger btn-sm">Cancel</button>
@@ -172,7 +173,7 @@
                 </div>
                 </div>
                     <?php endforeach;?>
-                    <form style="display: none;" method="post" action="">
+                    <form style="display: none;" method="post" action="user_reservations_loading">
                       <input type="text" name="divContent" id="inputMe" value="lfdsjmlfjsdf">
                       <button type="submit" name="" id="print"></button>
                     </form>
@@ -211,9 +212,6 @@
         console.log(theInput);
         theInput.value = thediv
       }
-      function getDiv2(){
-        var myWindow = window.open("likan", "MsgWindow", "width=291,height=480");
-        setTimeout(function(){ myWindow.close() }, 3000);
-      }
+      
 </script>
 </body>

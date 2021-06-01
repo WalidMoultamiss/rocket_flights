@@ -1,6 +1,9 @@
 <?php
     class Reservation{
         static public function addReservation($data){
+            if(!$_SESSION['user']){
+                Redirect::to('loginPage');
+            }
             $statement = DB::connect()->prepare('INSERT INTO reservations(user_foreignkey,flight_foreignkey) VALUES (?, ?)');
             if($statement->execute([$data['userID'],$data['id']])){
             $query = 'SELECT * FROM flights WHERE id=:id';
